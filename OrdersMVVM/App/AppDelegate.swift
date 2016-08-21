@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        configureSpiltViewController()
+        
+        // testing
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+        
         return true
     }
 
@@ -42,5 +51,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    // MARK: - Split View Setup
+    
+    func configureSpiltViewController() {
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        splitViewController.delegate = self
+        splitViewController.preferredDisplayMode = .AllVisible
+        
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count - 1] as! UINavigationController
+        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+    }
+    
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        // tells the split view controller not to apply any default behavior
+        // both primary and secondary view controllers are visible when possible
+        return true
+    }
 }
 
