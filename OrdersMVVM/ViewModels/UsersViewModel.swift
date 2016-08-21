@@ -20,18 +20,18 @@ class UsersViewModel {
     
     
     func refreshData(completion: () -> Void) {
-//        APIManager.downloadUsers { (users, error) in
-//            if let users = users {
-//                StorageManager.save(users)
-//            }
-//            
-//            if let downloadError = error {
-//                // return error in completion block for alert...
-//                print(downloadError)
-//            }
-//            
-//            completion()
-//        }
+        APIManager.downloadUsers { (users, error) in
+            if let users = users {
+                StorageManager.save(users)
+            }
+            
+            if let downloadError = error {
+                // return error in completion block for alert...
+                print(downloadError)
+            }
+            
+            completion()
+        }
     }
     
     
