@@ -27,11 +27,12 @@ class APIManager: NSObject {
         }
     }
     
+    
     static func addUser(withName name: String, phone: String, completion:(user: User?, error: NSError?) -> Void) {
         let contactsURL = "\(APIManager.baseURL)contactendpoint/v1/contact"
         
         Alamofire.request(.POST, contactsURL, parameters: [:], encoding: .Custom({ (request, parameters) -> (NSMutableURLRequest, NSError?) in
-            // name and phone need to be send within body, note as url params
+            // name and phone need to be send within body, not as url params
             let userParameters = ["name" : name, "phone" : phone]
             let mutableRequest = request.URLRequest.copy() as! NSMutableURLRequest
             let data = try! NSJSONSerialization.dataWithJSONObject(userParameters, options: .PrettyPrinted)
@@ -47,5 +48,6 @@ class APIManager: NSObject {
             case .Failure(let error):
                 completion(user: nil, error: error)
             }
-        }}
+        }
+    }
 }
