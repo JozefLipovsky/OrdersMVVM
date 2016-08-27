@@ -12,6 +12,8 @@ class AddUserTableViewController: UITableViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
+    var viewModel = AddUserViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,15 @@ class AddUserTableViewController: UITableViewController {
     // MARK: - IBAction
     
     @IBAction func addUserButtonPressed(sender: UIButton) {
+        let userName = viewModel.validate(input: userNameTextField.text)
+        let phoneNumber = viewModel.validate(input: phoneNumberTextField.text)
+        
+        if !userName.isValid || !phoneNumber.isValid {
+            // TODO: Alert...
+            print("Invalid input")
+        } else {
+            viewModel.createUser(withName: userName.text, phone: phoneNumber.text)
+        }
         
     }
     
@@ -35,3 +46,5 @@ class AddUserTableViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+

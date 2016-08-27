@@ -12,9 +12,9 @@ import RealmSwift
 class UsersTableViewController: UITableViewController {
     @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
-    var viewModel : UsersViewModel!
+    var viewModel: UsersViewModel!
     var viewModelUpdateNotification: NotificationToken? = nil
-    var dataSource : [String] = []
+    var dataSource: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +79,7 @@ class UsersTableViewController: UITableViewController {
             case .Initial, .Update:
                 // TODO: add row updates for insertions, deletions...
                 tableView.reloadData()
+                
             case .Error(let error):
                 print("ViewModel update notification block error: \(error.localizedDescription)")
                 break

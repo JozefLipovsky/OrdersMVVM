@@ -26,10 +26,13 @@ class AddUserViewModel {
             }
         }
     }
+
     
-    
-    func validate(input input: String) -> Bool {
-        return input.characters.count < minCharacterLenght
+    func validate(input input: String?) -> (isValid: Bool, text: String) {
+        if let userInput = input where userInput.characters.count >= minCharacterLenght {
+            return (true, userInput)
+        } else {
+            return (false, "")
+        }
     }
-    
 }

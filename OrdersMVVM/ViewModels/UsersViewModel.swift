@@ -15,7 +15,8 @@ class UsersViewModel {
     
     init() {
         self.realm = try! Realm()
-        self.users = realm.objects(User.self).sorted("dateAdded", ascending: true)
+        self.users = realm.objects(User.self).sorted("dateAdded", ascending: false)
+        // self.users = realm.objects(User.self).sorted("id", ascending: true)
     }
     
     
