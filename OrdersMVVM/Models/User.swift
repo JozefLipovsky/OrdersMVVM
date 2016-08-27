@@ -10,11 +10,14 @@ import Foundation
 import ObjectMapper
 import RealmSwift
 
+
+// TODO: add date added or something...
 class User: Object, Mappable {
     dynamic var id = ""
     dynamic var name = ""
     dynamic var phone = ""
     dynamic var pictureURL = ""
+    dynamic var dateAdded = NSDate() 
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -26,7 +29,6 @@ class User: Object, Mappable {
         name <- map["name"]
         phone <- map["phone"]
         pictureURL <- map["pictureUrl"]
-
     }
 
     
