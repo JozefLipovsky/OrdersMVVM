@@ -25,6 +25,7 @@
 		E07FDE401D69E87100085A24 /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07FDE3F1D69E87100085A24 /* ImageUtility.swift */; };
 		E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07FDE411D69E9F900085A24 /* StorageManager.swift */; };
 		E0D3070C1D71D2A30080C198 /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */; };
+		E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		E07FDE3F1D69E87100085A24 /* ImageUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		E07FDE411D69E9F900085A24 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
+		E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
 		E3C951BDF9AEAB96BF00C41D /* Pods-OrdersMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrdersMVVMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrdersMVVMUITests/Pods-OrdersMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				E07FDE391D69E41300085A24 /* UsersViewModel.swift */,
+				E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				E07FDE401D69E87100085A24 /* ImageUtility.swift in Sources */,
 				E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */,
 				E07FDE3C1D69E5AE00085A24 /* APIManager.swift in Sources */,
+				E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */,
 				E00649DF1D69F56C0038D41D /* UserTableCell.swift in Sources */,
 				E013AD2A1D69D0CE00B125A0 /* AppDelegate.swift in Sources */,
 				E07FDE381D69E33C00085A24 /* UsersResponse.swift in Sources */,
