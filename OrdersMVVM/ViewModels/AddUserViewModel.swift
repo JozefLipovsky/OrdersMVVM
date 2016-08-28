@@ -15,14 +15,15 @@ struct AddUserViewModel {
     init(){}
     
     
-    func createUser(withName name: String, phone: String) {
+    func createUser(withName name: String, phone: String, completion:(error: NSError?) -> Void) {
         APIManager.addUser(withName: name, phone: phone) { (user, error) in
             if let user = user {
                 StorageManager.save([user])
+                completion(error: nil)
             }
         
             if let error = error {
-                print(error)
+                completion(error: error)
             }
         }
     }

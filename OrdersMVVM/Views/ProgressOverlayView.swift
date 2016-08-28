@@ -14,9 +14,7 @@ class ProgressOverlayView {
     
     
     static func show() {
-        guard let mainWindow = UIApplication.sharedApplication().keyWindow else {
-            return;
-        }
+        guard let mainWindow = UIApplication.sharedApplication().keyWindow else { return }
         
         dismiss()
         
@@ -24,7 +22,7 @@ class ProgressOverlayView {
         overlayView.center = mainWindow.center
         overlayView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator.center = overlayView.center
         activityIndicator.startAnimating()
         
@@ -36,10 +34,7 @@ class ProgressOverlayView {
     
     
     static func dismiss() {
-        guard currentOverlayView != nil else {
-            return
-        }
-        
+        guard currentOverlayView != nil else { return }
         currentOverlayView?.removeFromSuperview()
         currentOverlayView = nil
     }

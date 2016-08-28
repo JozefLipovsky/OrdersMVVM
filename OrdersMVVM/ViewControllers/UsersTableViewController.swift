@@ -24,16 +24,13 @@ class UsersTableViewController: UITableViewController {
         pullToRefresh(pullToRefreshControl)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfUsers()
@@ -46,8 +43,9 @@ class UsersTableViewController: UITableViewController {
         return cell
     }
     
+    
     // MARK: - IBAction
- 
+    
     @IBAction func pullToRefresh(sender: UIRefreshControl) {
         sender.beginRefreshing()
         if tableView.contentOffset.y == 0 {
@@ -71,9 +69,7 @@ class UsersTableViewController: UITableViewController {
     private func configureViewModel()  {
         viewModel = UsersViewModel()
         viewModelUpdateNotification = viewModel.users?.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
-            guard let tableView = self?.tableView else {
-                return
-            }
+            guard let tableView = self?.tableView else { return }
             
             switch changes {
             case .Initial, .Update:
