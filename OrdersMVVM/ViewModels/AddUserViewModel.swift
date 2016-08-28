@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class AddUserViewModel {
+struct AddUserViewModel {
     private let minCharacterLenght = 5
     
     init(){}

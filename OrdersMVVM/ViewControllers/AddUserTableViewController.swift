@@ -16,14 +16,8 @@ class AddUserTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
     // MARK: - IBAction
@@ -36,15 +30,19 @@ class AddUserTableViewController: UITableViewController {
             // TODO: Alert...
             print("Invalid input")
         } else {
-            viewModel.createUser(withName: userName.text, phone: phoneNumber.text)
+            ProgressOverlayView.show()
+            //viewModel.createUser(withName: userName.text, phone: phoneNumber.text)
         }
         
     }
     
     
     @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
+        ProgressOverlayView.dismiss()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+
 
 

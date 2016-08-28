@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class UsersViewModel {
+struct UsersViewModel {
     private let realm : Realm
     var users: Results<User>?
     
