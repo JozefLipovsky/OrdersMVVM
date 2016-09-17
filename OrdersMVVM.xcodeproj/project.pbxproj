@@ -30,6 +30,7 @@
 		E0ED0DDD1D8D75A00067F322 /* OrdersDetailTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */; };
 		E0ED0DDF1D8D779E0067F322 /* OrdersDetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */; };
 		E0ED0DE11D8D797A0067F322 /* OrdersDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */; };
+		E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersDetailTableHeader.xib; sourceTree = "<group>"; };
 		E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableHeader.swift; sourceTree = "<group>"; };
 		E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableViewController.swift; sourceTree = "<group>"; };
+		E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableCell.swift; sourceTree = "<group>"; };
 		E3C951BDF9AEAB96BF00C41D /* Pods-OrdersMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrdersMVVMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrdersMVVMUITests/Pods-OrdersMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 				E0C831A81D73010700B5DE55 /* ProgressOverlayView.swift */,
 				E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */,
 				E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */,
+				E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				E07FDE3A1D69E41300085A24 /* UsersViewModel.swift in Sources */,
 				E00649E11D69F6790038D41D /* UsersTableViewController.swift in Sources */,
 				E07FDE401D69E87100085A24 /* ImageUtility.swift in Sources */,
+				E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */,
 				E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */,
 				E07FDE3C1D69E5AE00085A24 /* APIManager.swift in Sources */,
 				E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */,
