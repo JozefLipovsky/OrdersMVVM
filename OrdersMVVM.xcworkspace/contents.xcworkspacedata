@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:OrdersMVVM/Views/OrdersDetailTableHeader.swift">
+   </FileRef>
+   <FileRef
       location = "group:OrdersMVVM.xcodeproj">
    </FileRef>
    <FileRef

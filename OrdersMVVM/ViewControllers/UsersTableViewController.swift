@@ -56,6 +56,7 @@ class UsersTableViewController: UITableViewController {
             sender.endRefreshing()
         }
     }
+    
 
     // MARK: - Helpers
     
