@@ -20,15 +20,14 @@ struct OrdersDetailViewModel {
     }
     
     
-    func refreshOrdersData(completion: () -> Void) {
+    func refreshData(completion: () -> Void) {
         guard let user = user else {
             completion()
             return
         }
         
         APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
-            
+            completion()
         }
     }
-
 }

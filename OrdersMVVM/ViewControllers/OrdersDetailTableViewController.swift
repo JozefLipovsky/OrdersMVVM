@@ -10,20 +10,9 @@ import UIKit
 import RealmSwift
 
 class OrdersDetailTableViewController: UITableViewController {
+    @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
-    var user: User? {
-        didSet {
-//            self.navigationItem.title = user?.name
-//            
-//            if let user = user {
-//                APIManager.downloadOrders(forUserID: user.id, completion: { (orders, error) in
-//                    print(orders)
-//                    print(error)
-//                })
-//            }
-        }
-    }
-    
+    var user: User?
     var viewModel: OrdersDetailViewModel?
     var viewModelUpdateNotification: NotificationToken? = nil
     
@@ -32,8 +21,8 @@ class OrdersDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-        
+        configureViewModel()
+        pullToRefresh(pullToRefreshControl)
     }
     
 
@@ -59,6 +48,22 @@ class OrdersDetailTableViewController: UITableViewController {
     }
     */
     
+    
+    // MARK: - IBAction
+    
+    @IBAction func pullToRefresh(sender: UIRefreshControl) {
+        guard let viewModel = viewModel else { return }
+        
+        sender.beginRefreshing()
+        if tableView.contentOffset.y == 0 {
+            tableView.setContentOffset(CGPoint(x: 0, y: -pullToRefreshControl.frame.size.height), animated: true)
+        }
+        
+        viewModel.refreshData({
+            sender.endRefreshing()
+        })
+    }
+
     
     // MARK: - Helpers
     
