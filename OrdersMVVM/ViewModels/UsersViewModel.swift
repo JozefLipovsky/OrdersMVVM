@@ -57,5 +57,10 @@ struct UsersViewModel {
         let user = users![index]
         return user.pictureURL
     }
+    
+    
+    func user(at index: Int) -> User {
+        return users![index]
+    }
 }
 

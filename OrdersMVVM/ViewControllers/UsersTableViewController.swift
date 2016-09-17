@@ -44,6 +44,13 @@ class UsersTableViewController: UITableViewController {
     }
     
     
+    // MARK: Table view delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetail", sender: nil)
+    }
+    
+
     // MARK: - IBAction
     
     @IBAction func pullToRefresh(sender: UIRefreshControl) {
@@ -82,5 +89,17 @@ class UsersTableViewController: UITableViewController {
                 break
             }
         })
+    }
+    
+    
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let odersDetailVC = (segue.destinationViewController as! UINavigationController).topViewController as! OrdersDetailTableViewController
+                odersDetailVC.user = viewModel.user(at: indexPath.row)
+            }
+        }
     }
 }
