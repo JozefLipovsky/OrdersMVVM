@@ -12,6 +12,7 @@
 		D9F0DE940609EA2C2D119AA3 /* Pods_OrdersMVVMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658CDE0181AA75F6F94E0E46 /* Pods_OrdersMVVMUITests.framework */; };
 		E00649DF1D69F56C0038D41D /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00649DE1D69F56C0038D41D /* UserTableCell.swift */; };
 		E00649E11D69F6790038D41D /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00649E01D69F6790038D41D /* UsersTableViewController.swift */; };
+		E00BB3B11D8DB3CA00E99ABF /* OrdersDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BB3B01D8DB3CA00E99ABF /* OrdersDetailViewModel.swift */; };
 		E013AD2A1D69D0CE00B125A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013AD291D69D0CE00B125A0 /* AppDelegate.swift */; };
 		E013AD311D69D0CE00B125A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E013AD301D69D0CE00B125A0 /* Assets.xcassets */; };
 		E013AD3F1D69D0CE00B125A0 /* OrdersMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013AD3E1D69D0CE00B125A0 /* OrdersMVVMTests.swift */; };
@@ -63,6 +64,7 @@
 		980EC62AE76582EE8AA95200 /* Pods_OrdersMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrdersMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00649DE1D69F56C0038D41D /* UserTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableCell.swift; sourceTree = "<group>"; };
 		E00649E01D69F6790038D41D /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		E00BB3B01D8DB3CA00E99ABF /* OrdersDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailViewModel.swift; sourceTree = "<group>"; };
 		E013AD261D69D0CE00B125A0 /* OrdersMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrdersMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E013AD291D69D0CE00B125A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = OrdersMVVM/App/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E013AD301D69D0CE00B125A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				E07FDE391D69E41300085A24 /* UsersViewModel.swift */,
 				E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */,
+				E00BB3B01D8DB3CA00E99ABF /* OrdersDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				E0ED0DDF1D8D779E0067F322 /* OrdersDetailTableHeader.swift in Sources */,
 				E07FDE3A1D69E41300085A24 /* UsersViewModel.swift in Sources */,
 				E00649E11D69F6790038D41D /* UsersTableViewController.swift in Sources */,
+				E00BB3B11D8DB3CA00E99ABF /* OrdersDetailViewModel.swift in Sources */,
 				E07FDE401D69E87100085A24 /* ImageUtility.swift in Sources */,
 				E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */,
 				E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */,

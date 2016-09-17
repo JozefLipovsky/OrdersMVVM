@@ -14,7 +14,6 @@ class UsersTableViewController: UITableViewController {
     
     var viewModel: UsersViewModel!
     var viewModelUpdateNotification: NotificationToken? = nil
-    var dataSource: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
