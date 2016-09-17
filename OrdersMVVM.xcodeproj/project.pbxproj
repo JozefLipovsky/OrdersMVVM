@@ -32,6 +32,7 @@
 		E0ED0DE11D8D797A0067F322 /* OrdersDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */; };
 		E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */; };
 		E0ED0DE51D8D994D0067F322 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE41D8D994D0067F322 /* Order.swift */; };
+		E0ED0DE71D8DA1080067F322 /* OrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableViewController.swift; sourceTree = "<group>"; };
 		E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableCell.swift; sourceTree = "<group>"; };
 		E0ED0DE41D8D994D0067F322 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersResponse.swift; sourceTree = "<group>"; };
 		E3C951BDF9AEAB96BF00C41D /* Pods-OrdersMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrdersMVVMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrdersMVVMUITests/Pods-OrdersMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				E07FDE371D69E33C00085A24 /* UsersResponse.swift */,
+				E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */,
 			);
 			path = NetworkModels;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */,
 				E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */,
 				E07FDE3C1D69E5AE00085A24 /* APIManager.swift in Sources */,
+				E0ED0DE71D8DA1080067F322 /* OrdersResponse.swift in Sources */,
 				E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */,
 				E00649DF1D69F56C0038D41D /* UserTableCell.swift in Sources */,
 				E013AD2A1D69D0CE00B125A0 /* AppDelegate.swift in Sources */,

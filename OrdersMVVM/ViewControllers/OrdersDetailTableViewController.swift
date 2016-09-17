@@ -12,6 +12,13 @@ class OrdersDetailTableViewController: UITableViewController {
     var user: User? {
         didSet {
             self.navigationItem.title = user?.name
+            
+            if let user = user {
+                APIManager.downloadOrders(forUserID: user.id, completion: { (orders, error) in
+                    print(orders)
+                    print(error)
+                })
+            }
         }
     }
     

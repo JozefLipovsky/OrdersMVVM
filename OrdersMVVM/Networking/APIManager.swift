@@ -50,4 +50,19 @@ class APIManager: NSObject {
             }
         }
     }
+    
+    
+    static func downloadOrders(forUserID id: String, completion: (orders: [Order]?, error: NSError?) -> Void) {
+        let ordersURL = "\(APIManager.baseURL)orderendpoint/v1/order/" + id
+        
+        Alamofire.request(.GET, ordersURL).responseObject { (response: Response<OrdersResponse, NSError>) in
+            switch response.result {
+            case .Success(let ordersResponse):
+                completion(orders: ordersResponse.orderItems, error: nil)
+                
+            case .Failure(let error):
+                completion(orders: nil, error: error)
+            }
+        }
+    }
 }

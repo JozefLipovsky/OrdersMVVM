@@ -21,7 +21,7 @@ class Order: Object, Mappable {
     
     
     func mapping(map: Map) {
-        id <- map["id"]
+        id <- map["id.id"]
         name <- map["name"]
         count <- map["count"]
     }
