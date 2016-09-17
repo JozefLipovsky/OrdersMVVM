@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             realm.deleteAll()
         }
         
-//        APIManager.addUser(withName: "Andrej Sekera", phone: "0915 555 555")
-        
         return true
     }
 
