@@ -11,7 +11,7 @@ import RealmSwift
 
 struct UsersViewModel {
     private let realm : Realm
-    var users: Results<User>?
+    let users: Results<User>?
     
     init() {
         self.realm = try! Realm()

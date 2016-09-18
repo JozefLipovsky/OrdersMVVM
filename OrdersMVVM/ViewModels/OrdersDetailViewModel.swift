@@ -12,7 +12,7 @@ import RealmSwift
 
 struct OrdersDetailViewModel {
     private let realm : Realm
-    weak var user: User?
+    let user: User
     
     init(_ user: User) {
         self.user = user
@@ -21,13 +21,20 @@ struct OrdersDetailViewModel {
     
     
     func refreshData(completion: () -> Void) {
-        guard let user = user else {
-            completion()
-            return
-        }
-        
-        APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
+        APIManager.downloadOrders(forUserID: user.id) {  (orders, error) in
+            if let error = error {
+                print(error)
+            }
+            
+            if let orders = orders {
+                StorageManager.save(orders, forUserWithID: self.user.id)
+            }
+            
+            
             completion()
         }
     }
+    
+    
+    
 }

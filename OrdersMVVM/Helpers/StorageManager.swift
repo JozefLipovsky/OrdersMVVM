@@ -19,6 +19,27 @@ class StorageManager: NSObject {
                     realm.add(user, update: true);
                 }
             })
-        });
+        })
     }
+    
+    
+    static func save(orders:[Order], forUserWithID id: String) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let realm = try! Realm()
+            if let user = realm.objectForPrimaryKey(User.self, key: id) {
+                try! realm.write({
+                    for order in orders {
+                        // save or update existing Order object
+                        realm.add(order, update: true)
+                        
+                        // if User's orders list doesn't contain this Order yet add object to the list
+                        if let fillteredResults:Results<Order> = user.orders.filter(NSPredicate(format: "id == %@", order.id)) where fillteredResults.isEmpty {
+                            user.orders.append(order)
+                        }
+                    }
+                })
+            }
+        })
+    }
+    
 }
