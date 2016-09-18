@@ -68,6 +68,7 @@ class UsersTableViewController: UITableViewController {
     
     private func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsMultipleSelection = false
         tableView.estimatedRowHeight = 60.0
         navigationItem.title = "Orders"
     }

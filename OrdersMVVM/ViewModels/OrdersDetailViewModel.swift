@@ -30,11 +30,24 @@ struct OrdersDetailViewModel {
                 StorageManager.save(orders, forUserWithID: self.user.id)
             }
             
-            
             completion()
         }
     }
     
     
+    func numberOfOrders() -> Int {
+        return user.orders.count
+    }
     
+    
+    func nameOfOrder(at index: Int) -> String {
+        let order = user.orders[index]
+        return order.name
+    }
+    
+    
+    func countOfOrder(at index: Int) -> String {
+        let order = user.orders[index]
+        return String(order.count)
+    }
 }
