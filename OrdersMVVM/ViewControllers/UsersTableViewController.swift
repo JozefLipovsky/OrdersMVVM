@@ -45,7 +45,7 @@ class UsersTableViewController: UITableViewController {
     
     // MARK: Table view delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
         performSegueWithIdentifier("showDetail", sender: nil)
     }
     
@@ -80,9 +80,13 @@ class UsersTableViewController: UITableViewController {
             guard let tableView = self?.tableView else { return }
             
             switch changes {
-            case .Initial, .Update:
-                // TODO: add row updates for insertions, deletions...
+            case .Initial:
                 tableView.reloadData()
+                
+            case .Update:
+                let selectedRowIndexPath = tableView.indexPathForSelectedRow
+                tableView.reloadData()
+                tableView.selectRowAtIndexPath(selectedRowIndexPath, animated: false, scrollPosition: .None)
                 
             case .Error(let error):
                 print("ViewModel update notification block error: \(error.localizedDescription)")
