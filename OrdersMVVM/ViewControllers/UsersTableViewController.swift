@@ -54,10 +54,6 @@ class UsersTableViewController: UITableViewController {
     
     @IBAction func pullToRefresh(sender: UIRefreshControl) {
         sender.beginRefreshing()
-        if tableView.contentOffset.y == 0 {
-            tableView.setContentOffset(CGPoint(x: 0, y: -pullToRefreshControl.frame.size.height), animated: true)
-        }
-        
         viewModel.refreshData {
             sender.endRefreshing()
         }
@@ -71,6 +67,7 @@ class UsersTableViewController: UITableViewController {
         tableView.allowsMultipleSelection = false
         tableView.estimatedRowHeight = 60.0
         navigationItem.title = "Orders"
+        pullToRefreshControl.layoutIfNeeded() // to fix https://openradar.appspot.com/27516269
     }
     
     

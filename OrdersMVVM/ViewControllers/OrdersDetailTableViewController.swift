@@ -53,10 +53,6 @@ class OrdersDetailTableViewController: UITableViewController {
         guard let viewModel = viewModel else { return }
         
         sender.beginRefreshing()
-        if tableView.contentOffset.y == 0 {
-            tableView.setContentOffset(CGPoint(x: 0, y: -pullToRefreshControl.frame.size.height), animated: true)
-        }
-        
         viewModel.refreshData({
             sender.endRefreshing()
         })
@@ -69,6 +65,7 @@ class OrdersDetailTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
         navigationItem.title = user?.name
+        pullToRefreshControl.layoutIfNeeded()
     }
     
     
