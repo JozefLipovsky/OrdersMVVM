@@ -41,5 +41,4 @@ class StorageManager: NSObject {
             }
         })
     }
-    
 }
