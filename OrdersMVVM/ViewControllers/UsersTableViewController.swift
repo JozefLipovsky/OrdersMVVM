@@ -20,33 +20,35 @@ class UsersTableViewController: UITableViewController {
         
         setupUI()
         configureViewModel()
-        pullToRefresh(pullToRefreshControl)
+        pullToRefresh(sender: pullToRefreshControl)
     }
 
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+
     
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfUsers()
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserTableCell", forIndexPath: indexPath) as! UserTableCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableCell", for: indexPath) as! UserTableCell
         cell.configure(name: viewModel.nameOfUser(at: indexPath.row), phone: viewModel.phoneOfUser(at: indexPath.row), pictureURL: viewModel.pictureURLOfUser(at: indexPath.row))
         return cell
+
     }
     
     
     // MARK: Table view delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
-        performSegueWithIdentifier("showDetail", sender: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
 
@@ -77,15 +79,15 @@ class UsersTableViewController: UITableViewController {
             guard let tableView = self?.tableView else { return }
             
             switch changes {
-            case .Initial:
+            case .initial:
                 tableView.reloadData()
                 
-            case .Update:
+            case .update:
                 let selectedRowIndexPath = tableView.indexPathForSelectedRow
                 tableView.reloadData()
-                tableView.selectRowAtIndexPath(selectedRowIndexPath, animated: false, scrollPosition: .None)
+                tableView.selectRow(at: selectedRowIndexPath, animated: false, scrollPosition: .none)
                 
-            case .Error(let error):
+            case .error(let error):
                 print("ViewModel update notification block error: \(error.localizedDescription)")
                 break
             }
@@ -95,12 +97,13 @@ class UsersTableViewController: UITableViewController {
     
     // MARK: Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let odersDetailVC = (segue.destinationViewController as! UINavigationController).topViewController as! OrdersDetailTableViewController
+                let odersDetailVC = (segue.destination as! UINavigationController).topViewController as! OrdersDetailTableViewController
                 odersDetailVC.user = viewModel.user(at: indexPath.row)
             }
         }
     }
+    
 }
