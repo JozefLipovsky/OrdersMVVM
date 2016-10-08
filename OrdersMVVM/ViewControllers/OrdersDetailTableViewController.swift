@@ -22,29 +22,29 @@ class OrdersDetailTableViewController: UITableViewController {
         
         setupUI()
         configureViewModel()
-        pullToRefresh(pullToRefreshControl)
+        pullToRefresh(sender: pullToRefreshControl)
     }
     
 
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
         
         return viewModel.numberOfOrders()
     }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OrderTableCell", forIndexPath: indexPath) as! OrderTableCell
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableCell", for: indexPath) as! OrderTableCell
         cell.configure(name: (viewModel?.nameOfOrder(at: indexPath.row))!, count: (viewModel?.countOfOrder(at: indexPath.row))!)
         return cell
     }
-
     
     
     // MARK: - IBAction
@@ -53,7 +53,7 @@ class OrdersDetailTableViewController: UITableViewController {
         guard let viewModel = viewModel else { return }
         
         sender.beginRefreshing()
-        viewModel.refreshData({
+        viewModel.refreshData(completion: {
             sender.endRefreshing()
         })
     }
@@ -77,9 +77,9 @@ class OrdersDetailTableViewController: UITableViewController {
             guard let tableView = self?.tableView else { return }
             
             switch changes {
-            case .Initial, .Update:
+            case .initial, .update:
                 tableView.reloadData()
-            case .Error(let error):
+            case .error(let error):
                 print("OrdersViewModel update notification block error: \(error.localizedDescription)")
                 break
             }

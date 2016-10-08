@@ -30,7 +30,6 @@ class UsersTableViewController: UITableViewController {
         return 1
     }
 
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfUsers()
