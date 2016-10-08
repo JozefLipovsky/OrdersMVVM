@@ -14,15 +14,15 @@ class ProgressOverlayView {
     
     
     static func show() {
-        guard let mainWindow = UIApplication.sharedApplication().keyWindow else { return }
+        guard let mainWindow = UIApplication.shared.keyWindow else { return }
         
         dismiss()
         
         let overlayView = UIView(frame: mainWindow.frame)
         overlayView.center = mainWindow.center
-        overlayView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityIndicator.center = overlayView.center
         activityIndicator.startAnimating()
         
