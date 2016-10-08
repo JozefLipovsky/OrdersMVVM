@@ -19,7 +19,7 @@ class OrderTableCell: UITableViewCell {
     }
 
     
-    func configure(name name: String, count: String) {
+    func configure(withName name: String, count: String) {
         nameLabel.text = name
         countLabel.text = count + "x"
     }
@@ -28,6 +28,6 @@ class OrderTableCell: UITableViewCell {
     private func setupUI() {
         self.preservesSuperviewLayoutMargins = true;
         self.contentView.preservesSuperviewLayoutMargins = true;
-        self.selectionStyle = .None
+        self.selectionStyle = .none
     }
 }

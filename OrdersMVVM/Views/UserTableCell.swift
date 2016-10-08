@@ -20,7 +20,7 @@ class UserTableCell: UITableViewCell {
     }
     
     
-    func configure(name name: String, phone: String, pictureURL: String) {
+    func configure(withName name: String, phone: String, pictureURL: String) {
         userNameLabel.text = name
         phoneNumberLabel.text = phone
         ImageUtility.setImage(with: pictureURL, onView: avatarImageView)
