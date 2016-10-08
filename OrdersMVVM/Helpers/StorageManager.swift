@@ -23,7 +23,7 @@ class StorageManager: NSObject {
     }
     
     
-    static func save(orders:[Order], forUserWithID id: String) {
+    static func save(_ orders:[Order], forUserWithID id: String) {
         DispatchQueue.global(qos: .default).async {
             let realm = try! Realm()
             if let user = realm.object(ofType: User.self, forPrimaryKey: id) {
