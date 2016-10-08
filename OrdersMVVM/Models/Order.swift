@@ -15,7 +15,7 @@ class Order: Object, Mappable {
     dynamic var name = ""
     dynamic var count: Int = 0
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     

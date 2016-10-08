@@ -20,7 +20,7 @@ class AddUserTableViewController: UITableViewController {
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         userNameTextField.becomeFirstResponder()
     }
@@ -48,20 +48,20 @@ class AddUserTableViewController: UITableViewController {
         let phoneNumber = viewModel.validate(input: phoneNumberTextField.text)
         
         if !userName.isValid {
-            let alert = UIAlertController(title: "Incorrect input.", message: "User Name must contain at least 5 characters.", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { [weak self] action in
+            let alert = UIAlertController(title: "Incorrect input.", message: "User Name must contain at least 5 characters.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
                 guard let strongSelf = self else { return }
                 strongSelf.userNameTextField.becomeFirstResponder()
             }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         } else if !phoneNumber.isValid {
-            let alert = UIAlertController(title: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { [weak self] action in
+            let alert = UIAlertController(title: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
                 guard let strongSelf = self else { return }
                 strongSelf.phoneNumberTextField.becomeFirstResponder()
             }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
 
         } else {
             ProgressOverlayView.show()
@@ -70,11 +70,11 @@ class AddUserTableViewController: UITableViewController {
                 guard let strongSelf = self else { return }
                 
                 if let error = error {
-                    let alert = UIAlertController(title: "Error.", message: error.localizedDescription, preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                    strongSelf.presentViewController(alert, animated: true, completion: nil)
+                    let alert = UIAlertController(title: "Error.", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    strongSelf.present(alert, animated: true, completion: nil)
                 } else {
-                    strongSelf.dismissViewControllerAnimated(true, completion: nil)
+                    strongSelf.dismiss(animated: true, completion: nil)
                 }
             })
         }
@@ -83,7 +83,7 @@ class AddUserTableViewController: UITableViewController {
     
     @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
         dismissKeyboard()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -20,7 +20,7 @@ class User: Object, Mappable {
     dynamic var dateAdded = NSDate()
     let orders = List<Order>()
     
-    required convenience init?(_ map: Map) {
+    required convenience init?(map: Map) {
         self.init()
     }
     
