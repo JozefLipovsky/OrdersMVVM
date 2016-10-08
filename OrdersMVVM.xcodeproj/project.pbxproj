@@ -29,7 +29,6 @@
 		E0D3070C1D71D2A30080C198 /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */; };
 		E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */; };
 		E0ED0DDD1D8D75A00067F322 /* OrdersDetailTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */; };
-		E0ED0DDF1D8D779E0067F322 /* OrdersDetailTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */; };
 		E0ED0DE11D8D797A0067F322 /* OrdersDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */; };
 		E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */; };
 		E0ED0DE51D8D994D0067F322 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE41D8D994D0067F322 /* Order.swift */; };
@@ -87,7 +86,6 @@
 		E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
 		E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
 		E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersDetailTableHeader.xib; sourceTree = "<group>"; };
-		E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableHeader.swift; sourceTree = "<group>"; };
 		E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableViewController.swift; sourceTree = "<group>"; };
 		E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableCell.swift; sourceTree = "<group>"; };
 		E0ED0DE41D8D994D0067F322 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				E00649DE1D69F56C0038D41D /* UserTableCell.swift */,
 				E0C831A81D73010700B5DE55 /* ProgressOverlayView.swift */,
 				E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */,
-				E0ED0DDE1D8D779E0067F322 /* OrdersDetailTableHeader.swift */,
 				E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */,
 			);
 			path = Views;
@@ -366,13 +363,16 @@
 					E013AD251D69D0CE00B125A0 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = B2328STN6B;
+						LastSwiftMigration = 0800;
 					};
 					E013AD391D69D0CE00B125A0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = E013AD251D69D0CE00B125A0;
 					};
 					E013AD441D69D0CE00B125A0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = E013AD251D69D0CE00B125A0;
 					};
 				};
@@ -571,7 +571,6 @@
 				E0D3070C1D71D2A30080C198 /* AddUserTableViewController.swift in Sources */,
 				E07FDE351D69E28D00085A24 /* User.swift in Sources */,
 				E0ED0DE51D8D994D0067F322 /* Order.swift in Sources */,
-				E0ED0DDF1D8D779E0067F322 /* OrdersDetailTableHeader.swift in Sources */,
 				E07FDE3A1D69E41300085A24 /* UsersViewModel.swift in Sources */,
 				E00649E11D69F6790038D41D /* UsersTableViewController.swift in Sources */,
 				E00BB3B11D8DB3CA00E99ABF /* OrdersDetailViewModel.swift in Sources */,
@@ -724,7 +723,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -739,7 +738,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -752,7 +751,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrdersMVVM.app/OrdersMVVM";
 			};
 			name = Debug;
@@ -766,7 +765,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrdersMVVM.app/OrdersMVVM";
 			};
 			name = Release;
@@ -779,7 +778,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OrdersMVVM;
 			};
 			name = Debug;
@@ -792,7 +791,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joli.OrdersMVVMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OrdersMVVM;
 			};
 			name = Release;
