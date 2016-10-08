@@ -15,12 +15,12 @@ struct UsersViewModel {
     
     init() {
         self.realm = try! Realm()
-        self.users = realm.objects(User.self).sorted("dateAdded", ascending: false)
+        self.users = realm.objects(User.self).sorted(byProperty: "dateAdded", ascending: false)
         // self.users = realm.objects(User.self).sorted("id", ascending: true)
     }
     
     
-    func refreshData(completion: () -> Void) {
+    func refreshData(completion: @escaping () -> Void) {
         APIManager.downloadUsers { (users, error) in
             if let users = users {
                 StorageManager.save(users)
