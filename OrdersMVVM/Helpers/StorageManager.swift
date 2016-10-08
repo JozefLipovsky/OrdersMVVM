@@ -11,7 +11,7 @@ import RealmSwift
 
 class StorageManager: NSObject {
     
-    static func save(users:[User]) {
+    static func save(_ users:[User]) {
         DispatchQueue.global(qos: .default).async {
             let realm = try! Realm()
             try! realm.write({
