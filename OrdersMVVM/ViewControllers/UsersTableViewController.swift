@@ -20,7 +20,7 @@ class UsersTableViewController: UITableViewController {
         
         setupUI()
         configureViewModel()
-        pullToRefresh(sender: pullToRefreshControl)
+        pullToRefresh(pullToRefreshControl)
     }
 
     
@@ -53,7 +53,7 @@ class UsersTableViewController: UITableViewController {
 
     // MARK: - IBAction
     
-    @IBAction func pullToRefresh(sender: UIRefreshControl) {
+    @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         viewModel.refreshData {
             sender.endRefreshing()

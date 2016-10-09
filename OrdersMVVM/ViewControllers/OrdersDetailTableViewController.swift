@@ -22,7 +22,7 @@ class OrdersDetailTableViewController: UITableViewController {
         
         setupUI()
         configureViewModel()
-        pullToRefresh(sender: pullToRefreshControl)
+        pullToRefresh(pullToRefreshControl)
     }
     
 
@@ -49,7 +49,7 @@ class OrdersDetailTableViewController: UITableViewController {
     
     // MARK: - IBAction
     
-    @IBAction func pullToRefresh(sender: UIRefreshControl) {
+    @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
         guard let viewModel = viewModel else { return }
         
         sender.beginRefreshing()
@@ -57,7 +57,7 @@ class OrdersDetailTableViewController: UITableViewController {
             sender.endRefreshing()
         })
     }
-
+    
     
     // MARK: - Helpers
     

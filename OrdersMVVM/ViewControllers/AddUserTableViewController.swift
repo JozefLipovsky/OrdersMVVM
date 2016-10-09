@@ -41,7 +41,7 @@ class AddUserTableViewController: UITableViewController {
     
     // MARK: - IBAction
     
-    @IBAction func addUserButtonPressed(sender: UIButton) {
+    @IBAction func addUserButtonPressed(_ sender: UIButton) {
         dismissKeyboard()
         
         let userName = viewModel.validate(input: userNameTextField.text)
@@ -52,7 +52,7 @@ class AddUserTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
                 guard let strongSelf = self else { return }
                 strongSelf.userNameTextField.becomeFirstResponder()
-            }))
+                }))
             self.present(alert, animated: true, completion: nil)
             
         } else if !phoneNumber.isValid {
@@ -60,9 +60,9 @@ class AddUserTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
                 guard let strongSelf = self else { return }
                 strongSelf.phoneNumberTextField.becomeFirstResponder()
-            }))
+                }))
             self.present(alert, animated: true, completion: nil)
-
+            
         } else {
             ProgressOverlayView.show()
             viewModel.createUser(withName: userName.text, phone: phoneNumber.text, completion: { [weak self] (error) in
@@ -81,7 +81,7 @@ class AddUserTableViewController: UITableViewController {
     }
     
     
-    @IBAction func cancelBarButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func cancelBarButtonPressed(_ sender: UIBarButtonItem) {
         dismissKeyboard()
         self.dismiss(animated: true, completion: nil)
     }
