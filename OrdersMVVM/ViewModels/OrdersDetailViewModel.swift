@@ -21,7 +21,7 @@ struct OrdersDetailViewModel {
     
     
     func refreshData(completion: @escaping () -> Void) {
-        APIManager.downloadOrders(forUserID: user.id) {  (orders, error) in
+        APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
             if let error = error {
                 print(error)
             }

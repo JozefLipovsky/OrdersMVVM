@@ -40,7 +40,6 @@ class UsersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableCell", for: indexPath) as! UserTableCell
         cell.configure(withName: viewModel.nameOfUser(at: indexPath.row), phone: viewModel.phoneOfUser(at: indexPath.row), pictureURL: viewModel.pictureURLOfUser(at: indexPath.row))
         return cell
-
     }
     
     

@@ -35,7 +35,6 @@ class OrdersDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
-        
         return viewModel.numberOfOrders()
     }
     
@@ -50,7 +49,10 @@ class OrdersDetailTableViewController: UITableViewController {
     // MARK: - IBAction
     
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
-        guard let viewModel = viewModel else { return }
+        guard let viewModel = viewModel else {
+            sender.endRefreshing()
+            return
+        }
         
         sender.beginRefreshing()
         viewModel.refreshData(completion: {
