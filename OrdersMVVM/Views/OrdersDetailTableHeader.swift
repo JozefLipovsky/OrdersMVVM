@@ -12,5 +12,20 @@ class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
+    
+    func configure(withTitle title: String, subTitle: String) {
+        titleLabel.text = title
+        subtitleLabel.text = subTitle
+    }
+    
+    
+    override func prepareForReuse() {
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+    }
 }
+

@@ -46,6 +46,17 @@ class OrdersDetailTableViewController: UITableViewController {
     }
     
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let viewModel = viewModel else { return nil }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "OrdersDetailTableHeader") as! OrdersDetailTableHeader
+        header.configure(withTitle: "Phone", subTitle: viewModel.user.phone)
+        return header
+    }
+    
+    
     // MARK: - IBAction
     
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
@@ -66,6 +77,9 @@ class OrdersDetailTableViewController: UITableViewController {
     private func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.estimatedSectionHeaderHeight = 66.0
+        tableView.register(UINib(nibName: "OrdersDetailTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "OrdersDetailTableHeader")
         navigationItem.title = user?.name
         pullToRefreshControl.layoutIfNeeded()
     }

@@ -36,7 +36,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="phoneNumberLabel" destination="q0l-nY-vo9" id="c5o-OR-5zx"/>
                 <outlet property="subtitleLabel" destination="q0l-nY-vo9" id="VA5-WH-5QW"/>
                 <outlet property="titleLabel" destination="pHY-3q-K2q" id="VrW-kg-1hX"/>
             </connections>
