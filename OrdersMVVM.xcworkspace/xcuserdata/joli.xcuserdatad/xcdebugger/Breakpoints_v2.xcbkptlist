@@ -31,53 +31,5 @@
             endingLineNumber = "106">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OrdersMVVM/ViewControllers/OrdersDetailTableViewController.swift"
-            timestampString = "497900943.165614"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "configureViewModel()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OrdersMVVM.OrdersDetailTableViewController.(configureViewModel in _ABFD8F14B4859C8F98D8A08B9F542733) () -&gt; ()"
-                  moduleName = "OrdersMVVM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joli/Developer/OrdersMVVM/OrdersMVVM/ViewControllers/OrdersDetailTableViewController.swift"
-                  timestampString = "497900944.523999"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OrdersMVVM.OrdersDetailTableViewController.((configureViewModel in _ABFD8F14B4859C8F98D8A08B9F542733) () -&gt; ()).(closure #1)"
-                  moduleName = "OrdersMVVM"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/joli/Developer/OrdersMVVM/OrdersMVVM/ViewControllers/OrdersDetailTableViewController.swift"
-                  timestampString = "497900944.527113"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
