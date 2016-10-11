@@ -17,6 +17,15 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+## OSX Noise
+.DS_Store
+profile
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
 ## Other
 *.moved-aside
 *.xcuserstate
