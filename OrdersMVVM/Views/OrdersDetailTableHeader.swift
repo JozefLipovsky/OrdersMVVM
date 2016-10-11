@@ -11,9 +11,10 @@ import UIKit
 class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
     }
     
     
@@ -26,6 +27,13 @@ class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     override func prepareForReuse() {
         titleLabel.text = ""
         subtitleLabel.text = ""
+    }
+    
+    
+    private func setupUI() {
+        self.preservesSuperviewLayoutMargins = true;
+        self.contentView.preservesSuperviewLayoutMargins = true;
+        self.contentView.backgroundColor = UIColor(white: 0.97, alpha: 0.8)
     }
 }
 

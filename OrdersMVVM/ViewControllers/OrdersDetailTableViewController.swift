@@ -57,6 +57,12 @@ class OrdersDetailTableViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard viewModel != nil else { return 0 }
+        
+        return 66.0
+    }
+    
     // MARK: - IBAction
     
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
@@ -77,8 +83,6 @@ class OrdersDetailTableViewController: UITableViewController {
     private func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        tableView.estimatedSectionHeaderHeight = 66.0
         tableView.register(UINib(nibName: "OrdersDetailTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "OrdersDetailTableHeader")
         navigationItem.title = user?.name
         pullToRefreshControl.layoutIfNeeded()
