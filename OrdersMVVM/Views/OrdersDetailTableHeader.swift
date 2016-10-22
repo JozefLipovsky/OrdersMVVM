@@ -33,7 +33,13 @@ class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     private func setupUI() {
         self.preservesSuperviewLayoutMargins = true;
         self.contentView.preservesSuperviewLayoutMargins = true;
-        self.contentView.backgroundColor = UIColor(white: 0.97, alpha: 0.8)
+        self.contentView.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+        
+//        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3).cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
     }
 }
 
