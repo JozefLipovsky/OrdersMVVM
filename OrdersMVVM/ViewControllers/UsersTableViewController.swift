@@ -49,6 +49,16 @@ class UsersTableViewController: UITableViewController {
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
 
     // MARK: - IBAction
     
