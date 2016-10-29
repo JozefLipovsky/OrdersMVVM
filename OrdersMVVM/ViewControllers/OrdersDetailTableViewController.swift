@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 class OrdersDetailTableViewController: UITableViewController {
     @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
@@ -25,6 +26,12 @@ class OrdersDetailTableViewController: UITableViewController {
         pullToRefresh(pullToRefreshControl)
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+    }
+    
 
     // MARK: - Table view data source
     
@@ -35,6 +42,7 @@ class OrdersDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
+        
         return viewModel.numberOfOrders()
     }
     
@@ -82,9 +90,24 @@ class OrdersDetailTableViewController: UITableViewController {
         }
         
         sender.beginRefreshing()
-        viewModel.refreshData(completion: {
+        viewModel.refreshData { (dataState) in
             sender.endRefreshing()
-        })
+        
+            
+            switch dataState {
+            case .empty:
+                print("Empty data, show empty table background")
+            case .available:
+                print("Data available, show table")
+            case .error(let error):
+                print("Empty data, show empty table background with error: \(error.localizedDescription)")
+            }
+        }
+        
+        
+//        viewModel.refreshData(completion: {
+//            sender.endRefreshing()
+//        })
     }
     
     

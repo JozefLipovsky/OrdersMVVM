@@ -34,6 +34,7 @@
 		E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */; };
 		E0ED0DE51D8D994D0067F322 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE41D8D994D0067F322 /* Order.swift */; };
 		E0ED0DE71D8DA1080067F322 /* OrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */; };
+		E0FCEE671DC4CBAB00597985 /* ViewModelDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCEE661DC4CBAB00597985 /* ViewModelDataState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableCell.swift; sourceTree = "<group>"; };
 		E0ED0DE41D8D994D0067F322 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersResponse.swift; sourceTree = "<group>"; };
+		E0FCEE661DC4CBAB00597985 /* ViewModelDataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelDataState.swift; sourceTree = "<group>"; };
 		E3C951BDF9AEAB96BF00C41D /* Pods-OrdersMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrdersMVVMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrdersMVVMUITests/Pods-OrdersMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 		E07FDE2C1D69DBFE00085A24 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E0FCEE661DC4CBAB00597985 /* ViewModelDataState.swift */,
 				E07FDE391D69E41300085A24 /* UsersViewModel.swift */,
 				E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */,
 				E00BB3B01D8DB3CA00E99ABF /* OrdersDetailViewModel.swift */,
@@ -588,6 +591,7 @@
 				E0C831A91D73010700B5DE55 /* ProgressOverlayView.swift in Sources */,
 				E07FDE381D69E33C00085A24 /* UsersResponse.swift in Sources */,
 				E0ED0DE11D8D797A0067F322 /* OrdersDetailTableViewController.swift in Sources */,
+				E0FCEE671DC4CBAB00597985 /* ViewModelDataState.swift in Sources */,
 				E00BD8A11DAD5F51000040E4 /* OrdersDetailTableHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

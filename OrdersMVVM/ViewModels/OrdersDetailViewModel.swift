@@ -11,8 +11,9 @@ import RealmSwift
 
 
 struct OrdersDetailViewModel {
-    private let realm : Realm
+    private let realm: Realm
     let user: User
+    
     
     init(_ user: User) {
         self.user = user
@@ -20,17 +21,24 @@ struct OrdersDetailViewModel {
     }
     
     
-    func refreshData(completion: @escaping () -> Void) {
+    func refreshData(completion: @escaping (ViewModelDataState) -> Void) {
         APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
             if let error = error {
-                print(error)
+                completion(.error(error))
+                return
             }
             
-            if let orders = orders {
+            guard let orders = orders else {
+                completion(.empty)
+                return
+            }
+            
+            if orders.isEmpty {
+                completion(.empty)
+            } else {
                 StorageManager.save(orders, forUserWithID: self.user.id)
+                completion(.available)
             }
-            
-            completion()
         }
     }
     
