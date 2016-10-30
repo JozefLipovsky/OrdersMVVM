@@ -23,15 +23,16 @@ struct UsersViewModel {
     func refreshData(completion: @escaping () -> Void) {
         APIManager.downloadUsers { (users, error) in
             if let users = users {
-                StorageManager.save(users)
+                StorageManager.save(users, completion: { 
+                    completion()
+                })
             }
             
             if let downloadError = error {
                 // return error in completion block for alert...
                 print(downloadError)
+                completion()
             }
-            
-            completion()
         }
     }
     

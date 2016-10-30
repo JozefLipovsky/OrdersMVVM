@@ -18,8 +18,9 @@ struct AddUserViewModel {
     func createUser(withName name: String, phone: String, completion:@escaping (Error?) -> Void) {
         APIManager.addUser(withName: name, phone: phone) { (user, error) in
             if let user = user {
-                StorageManager.save([user])
-                completion(nil)
+                StorageManager.save([user], completion: { 
+                    completion(nil)
+                })
             }
         
             if let error = error {

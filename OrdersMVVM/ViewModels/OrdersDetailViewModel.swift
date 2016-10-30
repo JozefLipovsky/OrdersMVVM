@@ -21,24 +21,21 @@ struct OrdersDetailViewModel {
     }
     
     
-    func refreshData(completion: @escaping (ViewModelDataState) -> Void) {
+    func refreshData(completion: @escaping (Error?) -> Void) {
         APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
-            if let error = error {
-                completion(.error(error))
+            guard error == nil else {
+                completion(error)
                 return
             }
             
             guard let orders = orders else {
-                completion(.empty)
+                completion(nil)
                 return
             }
             
-            if orders.isEmpty {
-                completion(.empty)
-            } else {
-                StorageManager.save(orders, forUserWithID: self.user.id)
-                completion(.available)
-            }
+            StorageManager.save(orders, forUserWithID: self.user.id, completion: {
+                completion(nil)
+            })
         }
     }
     

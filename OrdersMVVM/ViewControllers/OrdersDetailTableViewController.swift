@@ -90,24 +90,12 @@ class OrdersDetailTableViewController: UITableViewController {
         }
         
         sender.beginRefreshing()
-        viewModel.refreshData { (dataState) in
+        viewModel.refreshData { [weak self] (error) in
             sender.endRefreshing()
-        
+//            guard let strongSelf = self else { return }
+//            print("Orders count: \(strongSelf.viewModel?.numberOfOrders())")
             
-            switch dataState {
-            case .empty:
-                print("Empty data, show empty table background")
-            case .available:
-                print("Data available, show table")
-            case .error(let error):
-                print("Empty data, show empty table background with error: \(error.localizedDescription)")
-            }
         }
-        
-        
-//        viewModel.refreshData(completion: {
-//            sender.endRefreshing()
-//        })
     }
     
     

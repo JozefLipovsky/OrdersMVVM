@@ -11,7 +11,7 @@ import RealmSwift
 
 class StorageManager: NSObject {
     
-    static func save(_ users:[User]) {
+    static func save(_ users:[User], completion: @escaping () -> Void ) {
         DispatchQueue.global(qos: .default).async {
             let realm = try! Realm()
             try! realm.write({
@@ -19,11 +19,12 @@ class StorageManager: NSObject {
                     realm.add(user, update: true);
                 }
             })
+            completion()
         }
     }
     
     
-    static func save(_ orders:[Order], forUserWithID id: String) {
+    static func save(_ orders:[Order], forUserWithID id: String, completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async {
             let realm = try! Realm()
             if let user = realm.object(ofType: User.self, forPrimaryKey: id) {
@@ -36,6 +37,7 @@ class StorageManager: NSObject {
                         }
                     }
                 })
+                completion()
             }
         }
     }
