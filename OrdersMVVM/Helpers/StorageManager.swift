@@ -19,7 +19,10 @@ class StorageManager: NSObject {
                     realm.add(user, update: true);
                 }
             })
-            completion()
+            
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     
@@ -37,7 +40,10 @@ class StorageManager: NSObject {
                         }
                     }
                 })
-                completion()
+                
+                DispatchQueue.main.async {
+                    completion()
+                }
             }
         }
     }

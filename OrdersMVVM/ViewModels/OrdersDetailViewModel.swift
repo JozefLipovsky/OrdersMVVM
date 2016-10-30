@@ -34,6 +34,7 @@ struct OrdersDetailViewModel {
             }
             
             StorageManager.save(orders, forUserWithID: self.user.id, completion: {
+                self.realm.refresh() // 
                 completion(nil)
             })
         }

@@ -93,8 +93,7 @@ class OrdersDetailTableViewController: UITableViewController {
         viewModel.refreshData { [weak self] (error) in
             sender.endRefreshing()
 //            guard let strongSelf = self else { return }
-//            print("Orders count: \(strongSelf.viewModel?.numberOfOrders())")
-            
+//            strongSelf.updateTableBackground()
         }
     }
     
