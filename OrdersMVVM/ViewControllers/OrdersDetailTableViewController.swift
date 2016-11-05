@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class OrdersDetailTableViewController: UITableViewController {
+class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
     @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
     var user: User?
@@ -95,6 +95,7 @@ class OrdersDetailTableViewController: UITableViewController {
             
             if let error = error, persistedOrdersAvailable == true {
                 strongSelf.showAlert(withTitle: "Error.", message: error.localizedDescription)
+
                 
             } else if let error = error, persistedOrdersAvailable == false {
                 strongSelf.showEmptyTableBackround(withTitle: "Error. \(error.localizedDescription)", subTitle: "Pull to Refresh.")
@@ -141,17 +142,5 @@ class OrdersDetailTableViewController: UITableViewController {
         let emptyBackground = EmptyBackgroundView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
         emptyBackground.configure(withTitle: title, subTitle: subTitle)
         tableView.backgroundView = emptyBackground
-    }
-    
-    
-    fileprivate func showAlert(withTitle title: String?, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.present(alert, animated: true, completion: nil)
-        }
-    }
-    
+    }    
 }
