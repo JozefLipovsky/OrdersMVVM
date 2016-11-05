@@ -21,21 +21,21 @@ struct OrdersDetailViewModel {
     }
     
     
-    func refreshData(completion: @escaping (Error?) -> Void) {
+    func refreshData(completion: @escaping (_ persistedOrdersAvailable: Bool, _ error: Error?) -> Void) {
         APIManager.downloadOrders(forUserID: user.id) { (orders, error) in
             guard error == nil else {
-                completion(error)
+                completion(self.containsOrders(), error)
                 return
             }
             
             guard let orders = orders else {
-                completion(nil)
+                completion(self.containsOrders(), nil)
                 return
             }
             
             StorageManager.save(orders, forUserWithID: self.user.id, completion: {
-                self.realm.refresh() // 
-                completion(nil)
+                self.realm.refresh()
+                completion(self.containsOrders(), nil)
             })
         }
     }
@@ -55,5 +55,10 @@ struct OrdersDetailViewModel {
     func countOfOrder(at index: Int) -> String {
         let order = user.orders[index]
         return String(order.count)
+    }
+    
+    
+    fileprivate func containsOrders() -> Bool {
+        return !user.orders.isEmpty
     }
 }

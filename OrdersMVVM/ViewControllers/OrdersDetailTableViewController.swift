@@ -26,7 +26,7 @@ class OrdersDetailTableViewController: UITableViewController {
         pullToRefresh(pullToRefreshControl)
     }
     
-
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,11 +86,22 @@ class OrdersDetailTableViewController: UITableViewController {
             return
         }
         
+        tableView.backgroundView = nil
+        
         sender.beginRefreshing()
-        viewModel.refreshData { [weak self] (error) in
+        viewModel.refreshData { [weak self] (persistedOrdersAvailable, error) in
             sender.endRefreshing()
-//            guard let strongSelf = self else { return }
-//            strongSelf.updateTableBackground()
+            guard let strongSelf = self else { return }
+            
+            if let error = error, persistedOrdersAvailable == true {
+                strongSelf.showAlert(withTitle: "Error.", message: error.localizedDescription)
+                
+            } else if let error = error, persistedOrdersAvailable == false {
+                strongSelf.showEmptyTableBackround(withTitle: "Error. \(error.localizedDescription)", subTitle: "Pull to Refresh.")
+                
+            } else if error == nil, persistedOrdersAvailable == false {
+                strongSelf.showEmptyTableBackround(withTitle: "No data available. Selected user have placed no orders.", subTitle: "Pull to Refresh.")
+            }
         }
     }
     
@@ -131,4 +142,16 @@ class OrdersDetailTableViewController: UITableViewController {
         emptyBackground.configure(withTitle: title, subTitle: subTitle)
         tableView.backgroundView = emptyBackground
     }
+    
+    
+    fileprivate func showAlert(withTitle title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
