@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
+class OrdersDetailTableViewController: UITableViewController, AlertPresentable, EmptyBackgroundPresentable {
     @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
     var user: User?
@@ -36,7 +36,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else {
-            self.showEmptyTableBackround(withTitle: "No user selected.", subTitle: "Select user to see order details.")
+            addEmptyBackground(withTitle: "No user selected.", subTitle: "Select user to see order details.")
             return 0
         }
         
@@ -86,7 +86,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
             return
         }
         
-        tableView.backgroundView = nil
+        removeEmptyBackgroundIfPresented()
         
         sender.beginRefreshing()
         viewModel.refreshData { [weak self] (persistedOrdersAvailable, error) in
@@ -96,12 +96,11 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
             if let error = error, persistedOrdersAvailable == true {
                 strongSelf.showAlert(withTitle: "Error.", message: error.localizedDescription)
 
-                
             } else if let error = error, persistedOrdersAvailable == false {
-                strongSelf.showEmptyTableBackround(withTitle: "Error. \(error.localizedDescription)", subTitle: "Pull to Refresh.")
+                strongSelf.addEmptyBackground(withTitle: "Error. \(error.localizedDescription)", subTitle: "Pull to Refresh.")
                 
             } else if error == nil, persistedOrdersAvailable == false {
-                strongSelf.showEmptyTableBackround(withTitle: "No data available. Selected user have placed no orders.", subTitle: "Pull to Refresh.")
+                strongSelf.addEmptyBackground(withTitle: "No data available. Selected user have placed no orders.", subTitle: "Pull to Refresh.")
             }
         }
     }
@@ -134,13 +133,6 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable {
             }
         })
     }
-    
-    
-    fileprivate func showEmptyTableBackround(withTitle title: String?, subTitle: String?) {
-        tableView.backgroundView = nil
-        
-        let emptyBackground = EmptyBackgroundView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-        emptyBackground.configure(withTitle: title, subTitle: subTitle)
-        tableView.backgroundView = emptyBackground
-    }    
 }
+
+
