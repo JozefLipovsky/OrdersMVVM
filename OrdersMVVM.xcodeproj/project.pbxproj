@@ -35,6 +35,8 @@
 		E0ED0DE51D8D994D0067F322 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE41D8D994D0067F322 /* Order.swift */; };
 		E0ED0DE71D8DA1080067F322 /* OrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */; };
 		E0FCEE671DC4CBAB00597985 /* ViewModelDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCEE661DC4CBAB00597985 /* ViewModelDataState.swift */; };
+		E0FCEE691DC66C1A00597985 /* EmptyBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FCEE681DC66C1A00597985 /* EmptyBackgroundView.swift */; };
+		E0FCEE6B1DC66FA100597985 /* EmptyBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0FCEE6A1DC66FA100597985 /* EmptyBackgroundView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		E0ED0DE41D8D994D0067F322 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E0ED0DE61D8DA1080067F322 /* OrdersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersResponse.swift; sourceTree = "<group>"; };
 		E0FCEE661DC4CBAB00597985 /* ViewModelDataState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelDataState.swift; sourceTree = "<group>"; };
+		E0FCEE681DC66C1A00597985 /* EmptyBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyBackgroundView.swift; sourceTree = "<group>"; };
+		E0FCEE6A1DC66FA100597985 /* EmptyBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyBackgroundView.xib; sourceTree = "<group>"; };
 		E3C951BDF9AEAB96BF00C41D /* Pods-OrdersMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrdersMVVMUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrdersMVVMUITests/Pods-OrdersMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +256,8 @@
 				E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */,
 				E00BD8A01DAD5F51000040E4 /* OrdersDetailTableHeader.swift */,
 				E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */,
+				E0FCEE681DC66C1A00597985 /* EmptyBackgroundView.swift */,
+				E0FCEE6A1DC66FA100597985 /* EmptyBackgroundView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				E013AD311D69D0CE00B125A0 /* Assets.xcassets in Resources */,
 				E07FDE311D69DEDC00085A24 /* LaunchScreen.storyboard in Resources */,
 				E0ED0DDD1D8D75A00067F322 /* OrdersDetailTableHeader.xib in Resources */,
+				E0FCEE6B1DC66FA100597985 /* EmptyBackgroundView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +587,7 @@
 				E07FDE3A1D69E41300085A24 /* UsersViewModel.swift in Sources */,
 				E00649E11D69F6790038D41D /* UsersTableViewController.swift in Sources */,
 				E00BB3B11D8DB3CA00E99ABF /* OrdersDetailViewModel.swift in Sources */,
+				E0FCEE691DC66C1A00597985 /* EmptyBackgroundView.swift in Sources */,
 				E07FDE401D69E87100085A24 /* ImageUtility.swift in Sources */,
 				E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */,
 				E07FDE421D69E9F900085A24 /* StorageManager.swift in Sources */,

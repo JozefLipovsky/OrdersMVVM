@@ -38,5 +38,4 @@ class ProgressOverlayView {
         currentOverlayView?.removeFromSuperview()
         currentOverlayView = nil
     }
-    
 }

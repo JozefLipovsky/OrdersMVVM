@@ -26,12 +26,6 @@ class OrdersDetailTableViewController: UITableViewController {
         pullToRefresh(pullToRefreshControl)
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-    }
-    
 
     // MARK: - Table view data source
     
@@ -41,7 +35,10 @@ class OrdersDetailTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
+        guard let viewModel = viewModel else {
+            self.showEmptyTableBackround(withTitle: "No user selected.", subTitle: "Select user to see order details.")
+            return 0
+        }
         
         return viewModel.numberOfOrders()
     }
@@ -100,7 +97,7 @@ class OrdersDetailTableViewController: UITableViewController {
     
     // MARK: - Helpers
     
-    private func setupUI() {
+    fileprivate func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.register(UINib(nibName: "OrdersDetailTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "OrdersDetailTableHeader")
@@ -109,7 +106,7 @@ class OrdersDetailTableViewController: UITableViewController {
     }
     
     
-    private func configureViewModel() {
+    fileprivate func configureViewModel() {
         guard let user = user else { return }
         
         viewModel = OrdersDetailViewModel(user)
@@ -124,5 +121,14 @@ class OrdersDetailTableViewController: UITableViewController {
                 break
             }
         })
+    }
+    
+    
+    fileprivate func showEmptyTableBackround(withTitle title: String?, subTitle: String?) {
+        tableView.backgroundView = nil
+        
+        let emptyBackground = EmptyBackgroundView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        emptyBackground.configure(withTitle: title, subTitle: subTitle)
+        tableView.backgroundView = emptyBackground
     }
 }
