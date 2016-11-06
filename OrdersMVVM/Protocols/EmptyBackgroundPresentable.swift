@@ -26,6 +26,7 @@ extension EmptyBackgroundPresentable where Self: UITableViewController {
         self.tableView.backgroundView = emptyBackground;
     }
     
+    
     func removeEmptyBackgroundIfPresented() {
         if (self.tableView.backgroundView != nil) {
             self.tableView.backgroundView = nil

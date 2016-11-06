@@ -94,13 +94,13 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
             guard let strongSelf = self else { return }
             
             if let error = error, persistedOrdersAvailable == true {
-                strongSelf.showAlert(withTitle: "Error.", message: error.localizedDescription)
+                strongSelf.showAlert(withTitle: "Error. Unable to refresh orders data at the moment.", message: error.localizedDescription)
 
             } else if let error = error, persistedOrdersAvailable == false {
-                strongSelf.addEmptyBackground(withTitle: "Error. \(error.localizedDescription)", subTitle: "Pull to Refresh.")
+                strongSelf.addEmptyBackground(withTitle: "Error. Orders details not available at the moment. \(error.localizedDescription)", subTitle: "Pull down to Refresh.")
                 
             } else if error == nil, persistedOrdersAvailable == false {
-                strongSelf.addEmptyBackground(withTitle: "No data available. Selected user have placed no orders.", subTitle: "Pull to Refresh.")
+                strongSelf.addEmptyBackground(withTitle: "No data available. Selected user have placed no orders.", subTitle: "Pull down to Refresh.")
             }
         }
     }
@@ -127,6 +127,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
             switch changes {
             case .initial, .update:
                 tableView.reloadData()
+                
             case .error(let error):
                 print("OrdersViewModel update notification block error: \(error.localizedDescription)")
                 break

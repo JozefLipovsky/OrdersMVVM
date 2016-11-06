@@ -11,7 +11,7 @@ import RealmSwift
 
 struct UsersViewModel {
     private let realm : Realm
-    let users: Results<User>?
+    let users: Results<User>
     
     init() {
         self.realm = try! Realm()
@@ -20,48 +20,58 @@ struct UsersViewModel {
     }
     
     
-    func refreshData(completion: @escaping () -> Void) {
+    func refreshData(completion: @escaping (_ persistedUsersAvailable: Bool, _ error: Error?) -> Void) {
         APIManager.downloadUsers { (users, error) in
-            if let users = users {
-                StorageManager.save(users, completion: { 
-                    completion()
-                })
+            guard error == nil else {
+                completion(self.containsUsers(), error)
+                return
             }
             
-            if let downloadError = error {
-                // return error in completion block for alert...
-                print(downloadError)
-                completion()
+            guard let users = users else {
+                completion(self.containsUsers(), nil)
+                return
             }
+            
+            
+            StorageManager.save(users, completion: { 
+                self.realm.refresh()
+                completion(self.containsUsers(), nil)
+            })
         }
     }
+
     
     
     func numberOfUsers() -> Int {
-        return users!.count
+        return users.count
     }
     
     
     func nameOfUser(at index: Int) -> String {
-        let user = users![index]
+        let user = users[index]
         return user.name
     }
     
     
     func phoneOfUser(at index: Int) -> String {
-        let user = users![index]
+        let user = users[index]
         return user.phone
     }
     
     
     func pictureURLOfUser(at index: Int) -> String {
-        let user = users![index]
+        let user = users[index]
         return user.pictureURL
     }
     
     
     func user(at index: Int) -> User {
-        return users![index]
+        return users[index]
+    }
+    
+    
+    fileprivate func containsUsers() -> Bool {
+        return !users.isEmpty
     }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class UsersTableViewController: UITableViewController {
+class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBackgroundPresentable {
     @IBOutlet weak var pullToRefreshControl: UIRefreshControl!
     
     var viewModel: UsersViewModel!
@@ -63,9 +63,22 @@ class UsersTableViewController: UITableViewController {
     // MARK: - IBAction
     
     @IBAction func pullToRefresh(_ sender: UIRefreshControl) {
+        removeEmptyBackgroundIfPresented()
+        
         sender.beginRefreshing()
-        viewModel.refreshData {
+        viewModel.refreshData { [weak self] (persistedUsersAvailable, error) in
             sender.endRefreshing()
+            guard let strongSelf = self else { return }
+            
+            if let error = error, persistedUsersAvailable == true {
+                strongSelf.showAlert(withTitle: "Error. Unable to refresh users data at the moment.", message: error.localizedDescription)
+                
+            } else if let error = error, persistedUsersAvailable == false {
+                strongSelf.addEmptyBackground(withTitle: "Error. Users data not available at the moment. \(error.localizedDescription)", subTitle: "Pull down to Refresh.")
+                
+            } else if error == nil, persistedUsersAvailable == false {
+                strongSelf.addEmptyBackground(withTitle: "No users available.", subTitle: "Pull down to Refresh.")
+            }
         }
     }
     
@@ -83,7 +96,7 @@ class UsersTableViewController: UITableViewController {
     
     private func configureViewModel()  {
         viewModel = UsersViewModel()
-        viewModelUpdateNotification = viewModel.users?.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
+        viewModelUpdateNotification = viewModel.users.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             
             switch changes {
@@ -113,5 +126,4 @@ class UsersTableViewController: UITableViewController {
             }
         }
     }
-    
 }
