@@ -15,20 +15,24 @@ struct AddUserViewModel {
     init(){}
     
     
-    func createUser(withName name: String, phone: String, completion:@escaping (Error?) -> Void) {
+    func createUser(withName name: String, phone: String, completion:@escaping (_ error: Error?) -> Void) {
         APIManager.addUser(withName: name, phone: phone) { (user, error) in
-            if let user = user {
-                StorageManager.save([user], completion: { 
-                    completion(nil)
-                })
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            
+            guard let user = user else {
+                completion(nil)
+                return
             }
         
-            if let error = error {
-                completion(error)
-            }
+            StorageManager.save([user], completion: {
+                completion(nil)
+            })
         }
     }
-
+    
     
     func validate(input: String?) -> (isValid: Bool, text: String) {
         if let userInput = input, userInput.characters.count >= minCharacterLenght {

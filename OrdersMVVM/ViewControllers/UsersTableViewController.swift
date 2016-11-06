@@ -17,7 +17,6 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         configureViewModel()
         pullToRefresh(pullToRefreshControl)

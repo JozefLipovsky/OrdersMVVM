@@ -20,7 +20,6 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         configureViewModel()
         pullToRefresh(pullToRefreshControl)

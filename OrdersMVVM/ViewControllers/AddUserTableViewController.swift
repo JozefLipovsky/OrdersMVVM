@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddUserTableViewController: UITableViewController {
+class AddUserTableViewController: UITableViewController, AlertPresentable {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
@@ -48,20 +48,10 @@ class AddUserTableViewController: UITableViewController {
         let phoneNumber = viewModel.validate(input: phoneNumberTextField.text)
         
         if !userName.isValid {
-            let alert = UIAlertController(title: "Incorrect input.", message: "User Name must contain at least 5 characters.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
-                guard let strongSelf = self else { return }
-                strongSelf.userNameTextField.becomeFirstResponder()
-                }))
-            self.present(alert, animated: true, completion: nil)
+            showAlert(withTitle: "Incorrect input.", message: "User Name must contain at least 5 characters.")
             
         } else if !phoneNumber.isValid {
-            let alert = UIAlertController(title: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] action in
-                guard let strongSelf = self else { return }
-                strongSelf.phoneNumberTextField.becomeFirstResponder()
-                }))
-            self.present(alert, animated: true, completion: nil)
+            showAlert(withTitle: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.")
             
         } else {
             ProgressOverlayView.show()
@@ -70,9 +60,8 @@ class AddUserTableViewController: UITableViewController {
                 guard let strongSelf = self else { return }
                 
                 if let error = error {
-                    let alert = UIAlertController(title: "Error.", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    strongSelf.present(alert, animated: true, completion: nil)
+                    strongSelf.showAlert(withTitle: "Error. Unable to upload new user.", message: error.localizedDescription)
+
                 } else {
                     strongSelf.dismiss(animated: true, completion: nil)
                 }
