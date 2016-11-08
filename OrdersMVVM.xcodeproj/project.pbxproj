@@ -31,6 +31,8 @@
 		E0C831A91D73010700B5DE55 /* ProgressOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C831A81D73010700B5DE55 /* ProgressOverlayView.swift */; };
 		E0D3070C1D71D2A30080C198 /* AddUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */; };
 		E0D3070E1D71DC3D0080C198 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */; };
+		E0EB1CE51DD256250097EE45 /* AddUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0EB1CE41DD256250097EE45 /* AddUser.storyboard */; };
+		E0EB1CE71DD2566D0097EE45 /* OrdersDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0EB1CE61DD2566D0097EE45 /* OrdersDetail.storyboard */; };
 		E0ED0DDD1D8D75A00067F322 /* OrdersDetailTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */; };
 		E0ED0DE11D8D797A0067F322 /* OrdersDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */; };
 		E0ED0DE31D8D824A0067F322 /* OrderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */; };
@@ -93,6 +95,8 @@
 		E0C831A81D73010700B5DE55 /* ProgressOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressOverlayView.swift; sourceTree = "<group>"; };
 		E0D3070B1D71D2A30080C198 /* AddUserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserTableViewController.swift; sourceTree = "<group>"; };
 		E0D3070D1D71DC3D0080C198 /* AddUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
+		E0EB1CE41DD256250097EE45 /* AddUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddUser.storyboard; sourceTree = "<group>"; };
+		E0EB1CE61DD2566D0097EE45 /* OrdersDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrdersDetail.storyboard; sourceTree = "<group>"; };
 		E0ED0DDC1D8D75A00067F322 /* OrdersDetailTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersDetailTableHeader.xib; sourceTree = "<group>"; };
 		E0ED0DE01D8D797A0067F322 /* OrdersDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersDetailTableViewController.swift; sourceTree = "<group>"; };
 		E0ED0DE21D8D824A0067F322 /* OrderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableCell.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 			children = (
 				E07FDE301D69DEDC00085A24 /* LaunchScreen.storyboard */,
 				E07FDE321D69DEE700085A24 /* Main.storyboard */,
+				E0EB1CE61DD2566D0097EE45 /* OrdersDetail.storyboard */,
+				E0EB1CE41DD256250097EE45 /* AddUser.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -429,7 +435,9 @@
 				E013AD311D69D0CE00B125A0 /* Assets.xcassets in Resources */,
 				E07FDE311D69DEDC00085A24 /* LaunchScreen.storyboard in Resources */,
 				E0ED0DDD1D8D75A00067F322 /* OrdersDetailTableHeader.xib in Resources */,
+				E0EB1CE71DD2566D0097EE45 /* OrdersDetail.storyboard in Resources */,
 				E0FCEE6B1DC66FA100597985 /* EmptyBackgroundView.xib in Resources */,
+				E0EB1CE51DD256250097EE45 /* AddUser.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
