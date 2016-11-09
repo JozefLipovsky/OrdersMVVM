@@ -1,6 +1,0 @@
-framework module Pods_OrdersMVVMTests {
-  umbrella header "Pods-OrdersMVVMTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
