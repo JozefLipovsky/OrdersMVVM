@@ -20,7 +20,7 @@ class UserTableCell: UITableViewCell {
     }
     
     
-    func configure(withName name: String, phone: String, pictureURL: String) {
+    func configureWith(name: String, phone: String, pictureURL: String) {
         userNameLabel.text = name
         phoneNumberLabel.text = phone
         ImageUtility.setImage(with: pictureURL, onView: avatarImageView)
@@ -32,7 +32,7 @@ class UserTableCell: UITableViewCell {
     }
     
     
-    private func setupUI() {
+    fileprivate func setupUI() {
         self.preservesSuperviewLayoutMargins = true;
         self.contentView.preservesSuperviewLayoutMargins = true;
     }

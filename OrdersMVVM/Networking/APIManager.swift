@@ -28,7 +28,7 @@ class APIManager: NSObject {
     }
     
     
-    static func addUser(withName name: String, phone: String, completion:@escaping (User?, Error?) -> Void) {
+    static func addUser(name: String, phone: String, completion:@escaping (User?, Error?) -> Void) {
         let contactsURL = "\(APIManager.baseURL)contactendpoint/v1/contact"
         let parameters = ["name" : name, "phone" : phone]
         
@@ -44,8 +44,8 @@ class APIManager: NSObject {
     }
 
     
-    static func downloadOrders(forUserID id: String, completion: @escaping ([Order]?, Error?) -> Void) {
-        let ordersURL = "\(APIManager.baseURL)orderendpoint/v1/order/" + id
+    static func downloadOrders(forUser userID: String, completion: @escaping ([Order]?, Error?) -> Void) {
+        let ordersURL = "\(APIManager.baseURL)orderendpoint/v1/order/" + userID
         
         Alamofire.request(ordersURL).responseObject { (response: DataResponse<OrdersResponse>) in
             switch response.result {

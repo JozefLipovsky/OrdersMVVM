@@ -18,7 +18,7 @@ class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     }
     
     
-    func configure(withTitle title: String, subTitle: String) {
+    func configureWith(title: String, subTitle: String) {
         titleLabel.text = title
         subtitleLabel.text = subTitle
     }
@@ -30,7 +30,7 @@ class OrdersDetailTableHeader: UITableViewHeaderFooterView {
     }
     
     
-    private func setupUI() {
+    fileprivate func setupUI() {
         self.preservesSuperviewLayoutMargins = true;
         self.contentView.preservesSuperviewLayoutMargins = true;
         self.contentView.backgroundColor = UIColor(white: 0.98, alpha: 1.0)

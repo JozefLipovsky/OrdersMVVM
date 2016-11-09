@@ -22,7 +22,7 @@ extension EmptyBackgroundPresentable where Self: UITableViewController {
         self.tableView.backgroundView = nil
         
         let emptyBackground = EmptyBackgroundView(frame: self.tableView.frame)
-        emptyBackground.configure(withTitle: title, subTitle: subTitle)
+        emptyBackground.configureWith(title: title, subTitle: subTitle)
         self.tableView.backgroundView = emptyBackground;
     }
     

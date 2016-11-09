@@ -27,10 +27,10 @@ class StorageManager: NSObject {
     }
     
     
-    static func save(_ orders:[Order], forUserWithID id: String, completion: @escaping () -> Void) {
+    static func save(_ orders:[Order], forUser userID: String, completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async {
             let realm = try! Realm()
-            if let user = realm.object(ofType: User.self, forPrimaryKey: id) {
+            if let user = realm.object(ofType: User.self, forPrimaryKey: userID) {
                 try! realm.write({
                     for order in orders {
                         // save or update existing Order object

@@ -37,7 +37,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableCell", for: indexPath) as! UserTableCell
-        cell.configure(withName: viewModel.nameOfUser(at: indexPath.row), phone: viewModel.phoneOfUser(at: indexPath.row), pictureURL: viewModel.pictureURLOfUser(at: indexPath.row))
+        cell.configureWith(name: viewModel.nameOfUser(at: indexPath.row), phone: viewModel.phoneOfUser(at: indexPath.row), pictureURL: viewModel.pictureURLOfUser(at: indexPath.row))
         return cell
     }
     
@@ -70,7 +70,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
             guard let strongSelf = self else { return }
             
             if let error = error, persistedUsersAvailable == true {
-                strongSelf.showAlert(withTitle: "Error. Unable to refresh users data at the moment.", message: error.localizedDescription)
+                strongSelf.showAlert(title: "Error. Unable to refresh users data at the moment.", message: error.localizedDescription)
                 
             } else if let error = error, persistedUsersAvailable == false {
                 strongSelf.addEmptyBackground(withTitle: "Error. Users data not available at the moment. \(error.localizedDescription)", subTitle: "Pull down to Refresh.")
@@ -84,7 +84,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
 
     // MARK: - Helpers
     
-    private func setupUI() {
+    fileprivate func setupUI() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsMultipleSelection = false
         tableView.estimatedRowHeight = 60.0
@@ -93,7 +93,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
     }
     
     
-    private func configureViewModel()  {
+    fileprivate func configureViewModel()  {
         viewModel = UsersViewModel()
         viewModelUpdateNotification = viewModel.users.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
@@ -103,9 +103,10 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
                 tableView.reloadData()
                 
             case .update:
-                let selectedRowIndexPath = tableView.indexPathForSelectedRow
+                // in case new user was just added
+                let previouslySelectedRowIndexPath = tableView.indexPathForSelectedRow
                 tableView.reloadData()
-                tableView.selectRow(at: selectedRowIndexPath, animated: false, scrollPosition: .none)
+                tableView.selectRow(at: previouslySelectedRowIndexPath, animated: false, scrollPosition: .none)
                 
             case .error(let error):
                 print("ViewModel update notification block error: \(error.localizedDescription)")

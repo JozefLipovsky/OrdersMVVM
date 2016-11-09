@@ -10,12 +10,12 @@ import UIKit
 import Foundation
 
 protocol AlertPresentable {
-    func showAlert(withTitle title: String?, message: String?)
+    func showAlert(title: String?, message: String?)
 }
 
 
 extension AlertPresentable where Self: UIViewController {
-    func showAlert(withTitle title: String?, message: String?) {
+    func showAlert(title: String?, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 

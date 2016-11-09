@@ -25,7 +25,7 @@ class EmptyBackgroundView: UIView {
     }
 
     
-    func configure(withTitle title: String?, subTitle: String?) {
+    func configureWith(title: String?, subTitle: String?) {
         titleLabel.text = title
         subtitleLabel.text = subTitle
     }

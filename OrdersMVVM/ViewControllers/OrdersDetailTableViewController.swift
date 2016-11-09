@@ -17,7 +17,6 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
     var viewModel: OrdersDetailViewModel?
     var viewModelUpdateNotification: NotificationToken? = nil
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -44,9 +43,14 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableCell", for: indexPath) as! OrderTableCell
-        cell.configure(withName: (viewModel?.nameOfOrder(at: indexPath.row))!, count: (viewModel?.countOfOrder(at: indexPath.row))!)
-        return cell
+        if let viewModel = viewModel {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableCell", for: indexPath) as! OrderTableCell
+            cell.configureWith(name: viewModel.nameOfOrder(at: indexPath.row), count: viewModel.countOfOrder(at: indexPath.row))
+            return cell
+            
+        } else {
+            return UITableViewCell()
+        }
     }
     
     
@@ -56,7 +60,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
         guard let viewModel = viewModel else { return nil }
         
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "OrdersDetailTableHeader") as! OrdersDetailTableHeader
-        header.configure(withTitle: "Phone", subTitle: viewModel.user.phone)
+        header.configureWith(title: "Phone", subTitle: viewModel.user.phone)
         return header
     }
     
@@ -93,7 +97,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
             guard let strongSelf = self else { return }
             
             if let error = error, persistedOrdersAvailable == true {
-                strongSelf.showAlert(withTitle: "Error. Unable to refresh orders data at the moment.", message: error.localizedDescription)
+                strongSelf.showAlert(title: "Error. Unable to refresh orders data at the moment.", message: error.localizedDescription)
 
             } else if let error = error, persistedOrdersAvailable == false {
                 strongSelf.addEmptyBackground(withTitle: "Error. Orders details not available at the moment. \(error.localizedDescription)", subTitle: "Pull down to Refresh.")
@@ -119,7 +123,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
     fileprivate func configureViewModel() {
         guard let user = user else { return }
         
-        viewModel = OrdersDetailViewModel(user)
+        viewModel = OrdersDetailViewModel(for: user)
         viewModelUpdateNotification = viewModel?.user.orders.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             

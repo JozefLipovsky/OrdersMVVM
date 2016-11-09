@@ -70,6 +70,8 @@ struct UsersViewModel {
     }
     
     
+    // MARK: - Helpers
+    
     fileprivate func containsUsers() -> Bool {
         return !users.isEmpty
     }

@@ -28,7 +28,7 @@ class AddUserTableViewController: UITableViewController, AlertPresentable {
     
     // MARK: - Helpers
     
-    func setupGestureRecognizer () {
+    func setupGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
@@ -48,10 +48,10 @@ class AddUserTableViewController: UITableViewController, AlertPresentable {
         let phoneNumber = viewModel.validate(input: phoneNumberTextField.text)
         
         if !userName.isValid {
-            showAlert(withTitle: "Incorrect input.", message: "User Name must contain at least 5 characters.")
+            showAlert(title: "Incorrect input.", message: "User Name must contain at least 5 characters.")
             
         } else if !phoneNumber.isValid {
-            showAlert(withTitle: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.")
+            showAlert(title: "Incorrect input.", message: "Phone Number must contain at least 5 numbers.")
             
         } else {
             ProgressOverlayView.show()
@@ -60,7 +60,7 @@ class AddUserTableViewController: UITableViewController, AlertPresentable {
                 guard let strongSelf = self else { return }
                 
                 if let error = error {
-                    strongSelf.showAlert(withTitle: "Error. Unable to upload new user.", message: error.localizedDescription)
+                    strongSelf.showAlert(title: "Error. Unable to upload new user.", message: error.localizedDescription)
 
                 } else {
                     strongSelf.dismiss(animated: true, completion: nil)

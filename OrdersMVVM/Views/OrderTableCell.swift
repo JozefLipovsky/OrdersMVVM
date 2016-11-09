@@ -19,13 +19,13 @@ class OrderTableCell: UITableViewCell {
     }
 
     
-    func configure(withName name: String, count: String) {
+    func configureWith(name: String, count: String) {
         nameLabel.text = name
         countLabel.text = count + "x"
     }
     
     
-    private func setupUI() {
+    fileprivate func setupUI() {
         self.preservesSuperviewLayoutMargins = true;
         self.contentView.preservesSuperviewLayoutMargins = true;
         self.selectionStyle = .none

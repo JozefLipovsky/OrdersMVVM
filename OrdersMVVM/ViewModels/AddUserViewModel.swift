@@ -16,7 +16,7 @@ struct AddUserViewModel {
     
     
     func createUser(withName name: String, phone: String, completion:@escaping (_ error: Error?) -> Void) {
-        APIManager.addUser(withName: name, phone: phone) { (user, error) in
+        APIManager.addUser(name: name, phone: phone) { (user, error) in
             guard error == nil else {
                 completion(error)
                 return
