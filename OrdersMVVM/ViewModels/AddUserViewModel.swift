@@ -35,7 +35,7 @@ struct AddUserViewModel {
     
     
     func validate(input: String?) -> (isValid: Bool, text: String) {
-        if let userInput = input, userInput.characters.count >= minCharacterLenght {
+        if let userInput = input, userInput.count >= minCharacterLenght {
             return (true, userInput)
         } else {
             return (false, "")

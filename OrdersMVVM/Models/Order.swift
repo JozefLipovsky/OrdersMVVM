@@ -11,9 +11,9 @@ import ObjectMapper
 import RealmSwift
 
 class Order: Object, Mappable {
-    dynamic var id = ""
-    dynamic var name = ""
-    dynamic var count: Int = 0
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var count: Int = 0
     
     required convenience init?(map: Map) {
         self.init()

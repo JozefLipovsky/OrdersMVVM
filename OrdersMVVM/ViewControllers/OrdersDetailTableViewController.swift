@@ -112,7 +112,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
     // MARK: - Helpers
     
     fileprivate func setupUI() {
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.register(UINib(nibName: "OrdersDetailTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "OrdersDetailTableHeader")
         navigationItem.title = user?.name

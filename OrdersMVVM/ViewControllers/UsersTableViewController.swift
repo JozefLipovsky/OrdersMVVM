@@ -85,7 +85,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
     // MARK: - Helpers
     
     fileprivate func setupUI() {
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsMultipleSelection = false
         tableView.estimatedRowHeight = 60.0
         navigationItem.title = "Orders"

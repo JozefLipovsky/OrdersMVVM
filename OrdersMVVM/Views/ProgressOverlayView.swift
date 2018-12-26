@@ -22,7 +22,7 @@ class ProgressOverlayView {
         overlayView.center = mainWindow.center
         overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.center = overlayView.center
         activityIndicator.startAnimating()
         

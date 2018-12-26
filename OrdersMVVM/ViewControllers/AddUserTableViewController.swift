@@ -34,7 +34,7 @@ class AddUserTableViewController: UITableViewController, AlertPresentable {
     }
 
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     

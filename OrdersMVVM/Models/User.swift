@@ -13,11 +13,11 @@ import RealmSwift
 
 // TODO: add date added or something...
 class User: Object, Mappable {
-    dynamic var id = ""
-    dynamic var name = ""
-    dynamic var phone = ""
-    dynamic var pictureURL = ""
-    dynamic var dateAdded = NSDate()
+    @objc dynamic var id = ""
+    @objc dynamic var name = ""
+    @objc dynamic var phone = ""
+    @objc dynamic var pictureURL = ""
+    @objc dynamic var dateAdded = NSDate()
     let orders = List<Order>()
     
     required convenience init?(map: Map) {
