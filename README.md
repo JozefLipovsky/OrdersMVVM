@@ -1,3 +1,3 @@
 # OrdersMVVM
 
-Simple MVVM demo app, that utilize Realm Collection notifications, instead of FRP bindings, to connects ViewModels and Views.
+Simple MVVM demo app which utilizes Realm Collection notifications, instead of FRP bindings, to connect ViewModels and Views.
