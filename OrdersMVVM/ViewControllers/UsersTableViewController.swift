@@ -95,7 +95,7 @@ class UsersTableViewController: UITableViewController, AlertPresentable, EmptyBa
     
     fileprivate func configureViewModel()  {
         viewModel = UsersViewModel()
-        viewModelUpdateNotification = viewModel.users.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
+        viewModelUpdateNotification = viewModel.users.observe({ [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             
             switch changes {

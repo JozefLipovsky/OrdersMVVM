@@ -124,7 +124,7 @@ class OrdersDetailTableViewController: UITableViewController, AlertPresentable, 
         guard let user = user else { return }
         
         viewModel = OrdersDetailViewModel(for: user)
-        viewModelUpdateNotification = viewModel?.user.orders.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
+        viewModelUpdateNotification = viewModel?.user.orders.observe({ [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
             
             switch changes {

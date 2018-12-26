@@ -15,7 +15,7 @@ struct UsersViewModel {
     
     init() {
         self.realm = try! Realm()
-        self.users = realm.objects(User.self).sorted(byProperty: "dateAdded", ascending: false)
+        self.users = realm.objects(User.self).sorted(byKeyPath: "dateAdded", ascending: false)
         // self.users = realm.objects(User.self).sorted("id", ascending: true)
     }
     

@@ -7,9 +7,9 @@ target 'OrdersMVVM' do
 
   # Pods for OrdersMVVM
   
-  pod 'RealmSwift', '~> 2.0'
+  pod 'RealmSwift', '~> 3.0'
   pod 'Alamofire', '~> 4.0'
-  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'AlamofireImage', '~> 3.0'
   
 
